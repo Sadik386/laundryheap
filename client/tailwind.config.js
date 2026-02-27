@@ -11,11 +11,14 @@ export default {
                 'lh-cyan': '#00B5E2', // Primary laundryheap cyan/blue
                 'lh-yellow': '#FFD06D', // The yellow accent
                 'lh-light-blue': '#F4F9FC', // Light background
+                'premium-yellow': '#ffbf00',
             },
             fontFamily: {
                 sans: ['Inter', 'sans-serif'],
+                heading: ['Space Grotesk', 'sans-serif'],
             }
         },
     },
     plugins: [],
 }
+
