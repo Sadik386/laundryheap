@@ -3,6 +3,9 @@ import { auth, googleProvider } from '../firebase';
 import { signInWithPopup, signOut, onAuthStateChanged } from 'firebase/auth';
 import axios from 'axios';
 
+// base API URL from environment (VITE_API_URL) or fallback
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
@@ -20,7 +23,7 @@ export const AuthProvider = ({ children }) => {
 
                 // Sync with backend (optional: create user in DB if not exists)
                 try {
-                    await axios.post('http://localhost:5000/api/auth/firebase', {}, {
+                    await axios.post(`${API_URL}/api/auth/firebase`, {}, {
                         headers: { Authorization: `Bearer ${idToken}` }
                     });
                 } catch (error) {

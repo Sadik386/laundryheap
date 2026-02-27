@@ -5,6 +5,8 @@ import Footer from '../components/Footer';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+
 const Dashboard = () => {
     const { user, token, logout } = useContext(AuthContext);
     const [bookings, setBookings] = useState([]);
@@ -18,7 +20,7 @@ const Dashboard = () => {
 
         const fetchBookings = async () => {
             try {
-                const res = await axios.get('http://localhost:5000/api/bookings', {
+                const res = await axios.get(`${API_URL}/api/bookings`, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 setBookings(res.data);

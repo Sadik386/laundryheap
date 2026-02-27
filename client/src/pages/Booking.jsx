@@ -81,9 +81,10 @@ const Booking = () => {
                     contact: contactInfo
                 };
 
-                let endpoint = 'http://localhost:5000/api/bookings/init';
-                if (paymentMethod === 'stripe') endpoint = 'http://localhost:5000/api/bookings/init-stripe';
-                if (paymentMethod === 'paypal') endpoint = 'http://localhost:5000/api/bookings/init-paypal';
+                const base = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+                let endpoint = `${base}/api/bookings/init`;
+                if (paymentMethod === 'stripe') endpoint = `${base}/api/bookings/init-stripe`;
+                if (paymentMethod === 'paypal') endpoint = `${base}/api/bookings/init-paypal`;
 
                 const response = await axios.post(endpoint, bookingData, {
                     headers: { Authorization: `Bearer ${token}` }

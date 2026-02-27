@@ -66,7 +66,9 @@ src/
    Create a `.env` file in the root directory and add your keys:
    ```env
    VITE_STRIPE_PUBLISHABLE_KEY=your_stripe_key
+   VITE_API_URL=http://localhost:5000        # base URL of the backend (can be changed per environment)
    ```
+   The frontend uses `VITE_API_URL` to construct API requests; if unset it falls back to `http://localhost:5000`.
 
 4. **Firebase Setup**:
    Update `src/firebase.js` with your Firebase project configuration.
