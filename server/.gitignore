@@ -1,0 +1,15 @@
+# dependencies
+node_modules/
+
+# logs
+logs
+*.log
+
+# local env files
+.env
+
+# build output
+dist/
+
+# service account (ignored by root but duplicate safe)
+serviceAccountKey*.json

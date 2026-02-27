@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@theme {
+  --color-lh-blue: #0890f3;
+  --color-lh-cyan: #00B5E2;
+  --color-lh-yellow: #FFD06D;
+  --color-lh-light-blue: #F4F9FC;
+  --font-sans: "Inter", sans-serif;
+}
+
+@layer base {
+  body {
+    @apply antialiased text-lh-blue bg-white;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@keyframes slide-up {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  10%,
+  90% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+.animate-slide-up {
+  animation: slide-up 3s ease-in-out infinite;
+}
